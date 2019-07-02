@@ -81,27 +81,21 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 
-let stringOne = "summer"
+let stringOne = "summerj"
+var count = 0
+var checkin = stringOne.count % 2 == 0
 
-var checkin = true
-
-if stringOne.count % 2 == 0 {
-checkin = true
-} else {
-checkin = false
-}
-
-switch check in {
+switch checkin {
 case true:
 for char in stringOne {
 print(char)
 }
 case false:
-for i in stringOne.count - 1 {
-if i % 2 != 0 {
+for char in stringOne {
+count += 1
+if count % 2 != 0 {
 print(char)
-default:
-print("whatever")
+}
 }
 }
 ***
@@ -109,27 +103,42 @@ print("whatever")
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
 
+var stringOne: Character = "a"
+stringOne == Character("a")
 
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
 
+
 ***
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
 
+let unicodeHello = "\u{48}\u{65}\u{6c}\u{6c}\u{6f}"
+let unicodeWorld = "\u{57}\u{6f}\u{72}\u{6c}\u{64}\u{21}"
+print(unicodeHello + " " + unicodeWorld)
 ***
+I realized afterwards that I was supposed to print out all CAPS.
+
 ## Question 10
 
 **Using only Unicode**, print out your name.
+
+let unicodeKrystal = "\u{4b}\u{72}\u{79}\u{73}\u{74}\u{61}\u{6c}"
+let unicodeCampbell = "\u{43}\u{61}\u{6d}\u{70}\u{62}\u{65}\u{6c}\u{6c}"
+print(unicodeKrystal + " " + unicodeCampbell)
 
 ***
 ## Question 11
 
 **Using only Unicode**, print out `"HELLO WORLD!"` in another language.
 
+let unicodeHola = "\u{48}\u{6f}\u{6c}\u{61}"
+let unicodeMundo = "\u{4d}\u{75}\u{6e}\u{64}\u{6f}"
+print(unicodeHola + " " + unicodeMundo)
 ***
 ## Question 12
 
@@ -152,7 +161,19 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
 ```
+var flower = "\u{2698}"
+var verticalSymbol = "\u{007c}"
+var horizontalSymbol = "\u{005f}"
 
+for _ in 1...11 {
+print(horizontalSymbol, terminator: " ")
+}
+print()
+print()
+
+for _ in 1...7 {
+print("\(verticalSymbol) \(flower) \(verticalSymbol) \(flower) \(verticalSymbol) \(flower) \(verticalSymbol) \(flower) \(verticalSymbol) \(flower) \(verticalSymbol)")
+}
 ***
 ## Question 13
 
@@ -169,6 +190,29 @@ Chess Board:
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 ```
+var chessBoard = "\u{43}\u{68}\u{65}\u{73}\u{73}\u{20}\u{42}\u{6f}\u{61}\u{72}\u{64}:"
+print(chessBoard)
+
+
+let unicodePlayerRoyal = "\u{2656}\u{2658}\u{2657}\u{2655}\u{2654}\u{2657}\u{2658}\u{2656}"
+print(unicodePlayerRoyal, separator: " ")
+let unicodePlayerPawns = "\u{2659}"
+for _ in 1...8 {
+print(unicodePlayerPawns, terminator: " ")
+}
+print()
+print()
+print()
+
+let unicodePlayerTwoPawns = "\u{265f}"
+for _ in 1...8 {
+print(unicodePlayerTwoPawns, terminator: " ")
+}
+print()
+
+let unicodePlayerTwoRoyal = "\u{265c}\u{265e}\u{265d}\u{265b}\u{265a}\u{265d}\u{265e}\u{265c}"
+
+print(unicodePlayerTwoRoyal)
 
 ***
 ## Question 14
