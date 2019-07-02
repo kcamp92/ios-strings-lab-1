@@ -14,27 +14,65 @@
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
 
+var emptyString = ""
+let int = 1...10
+for a in int {
+emptyString += String(a)
+}
+print(emptyString)
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
+
+var emptyString = ""
+let int = 5...51
+
+for a in int {
+if a % 2 == 0 {
+emptyString += " \(a) "
+}
+}
+print(emptyString)
 
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
 
+var emptyString = ""
+
+let range = 1...60
+let maxNumber = 60
+var initialNumber = 4
+
+for _ in range where initialNumber < maxNumber {
+initialNumber += 10
+
+emptyString += "\(initialNumber) "
+}
+print(emptyString)
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
 
+let string = "Hello world!"
+for character in "Hello world!"{
+print(character)
+}
 ***
 ## Question 5
 
 Print out the last character in the string below.  You cannot use the Character literal "!" (i.e you must access `myStringSeven`'s characters).
 
 `let myStringSeven = "Hello world!"`
+
+var myStringSeven = "Hello world!"
+myStringSeven = String((myStringSeven.last)!)
+
+print(myStringSeven)
+
 
 ***
 ## Question 6
@@ -43,10 +81,34 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 
+let stringOne = "summer"
+
+var checkin = true
+
+if stringOne.count % 2 == 0 {
+checkin = true
+} else {
+checkin = false
+}
+
+switch check in {
+case true:
+for char in stringOne {
+print(char)
+}
+case false:
+for i in stringOne.count - 1 {
+if i % 2 != 0 {
+print(char)
+default:
+print("whatever")
+}
+}
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
+
 
 ***
 ## Question 8
