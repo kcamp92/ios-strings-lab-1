@@ -111,6 +111,36 @@ stringOne == Character("a")
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
 
+var accentedLetter = "\u{65}\u{0301}"
+print(accentedLetter)
+
+var hungry =  "é"
+print(hungry == accentedLetter)
+
+var accentedLetters = "\u{61}\u{0301}"
+print(accentedLetters)
+
+var hunger =  "á"
+print(hunger == accentedLetters)
+
+var accentedLettering = "\u{6f}\u{0301}"
+print(accentedLettering)
+
+var hangry =  "ó"
+print(hangry == accentedLettering)
+
+var accentedLett = "\u{69}\u{0301}"
+print(accentedLett)
+
+var hang =  "í"
+print(hang == accentedLett)
+
+var accentedLow = "\u{75}\u{0301}"
+print(accentedLow)
+
+var hand =  "ú"
+print(hand == accentedLow)
+
 
 ***
 ## Question 9
@@ -232,6 +262,13 @@ Input:
 Expected values:
 `replacedString = "R*plac* th* l*tt*r * with *"`
 
+var aString = "Replace the letter e with *"
+
+var replacedString = " "
+replacedString +=
+aString.replacingOccurrences(of: "e", with: "*")
+print(replacedString)
+
 ***
 ## Question 15
 
@@ -250,6 +287,12 @@ Input:
 
 Output:
 `"olleH"`
+
+var aString = "this string has 29 characters"
+var reversedString = " "
+reversedString +=
+aString.reversed()
+print(reversedString)
 
 ***
 ## Question 16
@@ -275,6 +318,17 @@ Input:
 
 Output:
 `false`
+
+let aString = "madam"
+var reversedString = ""
+for letters in aString {
+reversedString = "\(letters)" + reversedString
+}
+if reversedString == aString {
+print("true")
+}   else {
+print("false")
+}
 
 ***
 ## Question 17
@@ -305,7 +359,13 @@ on
 separate
 lines
 ```
+var problem = "split this string into words and print them on separate lines"
 
+let aString = problem
+
+for words in aString.components(separatedBy: " ") {
+print(words)
+}
 ***
 ## Question 18
 
@@ -326,6 +386,14 @@ Output:
 
 Hint: Keep track of the longest word you encounter and also keep track of its length.
 
+var problem = "find the longest word in the problem description"
+var split = problem.components(separatedBy: " ")
+
+var max = split.max(by: { $1.count > $0.count})
+if max != nil {
+print((max)!)
+}
+
 ***
 ## Question 19
 
@@ -336,7 +404,30 @@ let vowels = "aeiou"
 let consonants = "bcdfghjklmnpqrstvwxyz"
 let input = "Count how many vowels I have!"
 ```
+let vowels = "aeiou"
+let consonants = "bcdfghjklmnpqrstvwxyz"
+let input = "Count how many vowels I have!"
 
+
+
+func vowelConsonants(_ input: String) -> (vowels: Int, consonants: Int) {
+let vowels = "aeiou"
+let consonants = "bcdfghjklmnpqrstvwxyz"
+var vowelCount = 0
+var consonantCount = 0
+
+for letter in input.lowercased() {
+if consonants.contains(letter) {
+consonantCount += 1
+} else {
+if vowels.contains(letter) {
+vowelCount += 1
+}
+}
+}
+return (vowelCount, consonantCount)
+}
+print(vowels.count)
 ***
 ## Question 20
 
@@ -348,5 +439,13 @@ Example:
 Input: `"How are you doing this Monday?"`
 
 Output: `7`
+let phrase = "How are you doing this Monday?"
+let wordCount = phrase.filter{ $0.isLetter || $0.isWhitespace }
+if let index = wordCount.lastIndex(of: " ") {
+let lastWord = wordCount[index...]
+print(lastWord.count)
+} else {
+print("No last word")
+}
 
 ***
