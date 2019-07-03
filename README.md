@@ -359,12 +359,17 @@ on
 separate
 lines
 ```
-var problem = "split this string into words and print them on separate lines"
+var sentence = "split this string into words and print them on separate lines "
+var space = " "
+var currentWord = ""
 
-let aString = problem
-
-for words in aString.components(separatedBy: " ") {
-print(words)
+for character in sentence {
+if String (character) == space {
+print(currentWord)
+currentWord = ""
+continue
+}
+currentWord += String(character)
 }
 ***
 ## Question 18
